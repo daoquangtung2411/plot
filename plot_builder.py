@@ -62,14 +62,19 @@ def scatter(df, x, y, hue=None, size=None, style=None, marker="o", marker_map=No
     return fig
 
 
-def line(df, x, y, hue=None, palette=None, figsize=(4, 3.2), markers=True,
-         ci=None, title="", xlabel="", ylabel=""):
+def line(df, x, y, hue=None, palette=None, figsize=(4, 3.2), show_markers=True,
+         marker="o", marker_map=None, ci=None, title="", xlabel="", ylabel=""):
     _require(x and y, "Choose both an X and a Y column.")
     fig, ax = _new_fig(figsize)
-    sns.lineplot(
-        data=df, x=x, y=y, hue=hue, palette=palette, ax=ax,
-        marker="o" if markers else None, errorbar=ci,
-    )
+    line_kwargs = dict(data=df, x=x, y=y, hue=hue, palette=palette, ax=ax, errorbar=ci)
+    if show_markers:
+        if hue and marker_map:
+            line_kwargs["style"] = hue
+            line_kwargs["markers"] = marker_map
+            line_kwargs["dashes"] = False
+        else:
+            line_kwargs["marker"] = marker
+    sns.lineplot(**line_kwargs)
     ax.set_xlabel(xlabel or x)
     ax.set_ylabel(ylabel or y)
     if title:

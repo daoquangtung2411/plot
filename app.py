@@ -6,7 +6,7 @@ import streamlit as st
 
 from codegen import generate_script
 from plot_builder import PLOT_REGISTRY, PlotError
-from style import FIGURE_WIDTHS_MM, MARKER_SHAPES, PALETTES, apply_nature_style, mm_to_inch
+from style import FIGURE_WIDTHS_MM, MARKER_SHAPES, OKABE_ITO, PALETTES, apply_nature_style, mm_to_inch
 from utils import load_file, make_sample_data
 
 st.set_page_config(page_title="Plot Studio", layout="wide")
@@ -132,9 +132,40 @@ if plot_name == "Scatter":
         plot_kwargs["outline_color"] = "#FFFFFF"
         plot_kwargs["outline_width"] = 0.0
 elif plot_name == "Line":
-    plot_kwargs["markers"] = st.sidebar.checkbox("Show markers", value=True)
+    plot_kwargs["show_markers"] = st.sidebar.checkbox("Show markers", value=True)
     ci_choice = st.sidebar.selectbox("Error band", ["None", "sd", "se"], index=0)
     plot_kwargs["ci"] = None if ci_choice == "None" else ci_choice
+
+    hue_col = params.get("hue")
+    shape_names = list(MARKER_SHAPES.keys())
+    customize = False
+    if hue_col:
+        customize = st.sidebar.checkbox("Customize color & marker per line", value=False)
+
+    if customize and hue_col:
+        categories = sorted(df[hue_col].dropna().unique().tolist(), key=str)
+        st.sidebar.markdown("**Per-line color & shape**")
+        color_map, marker_map = {}, {}
+        for i, cat in enumerate(categories):
+            st.sidebar.caption(str(cat))
+            c1, c2 = st.sidebar.columns(2)
+            default_color = OKABE_ITO[i % len(OKABE_ITO)]
+            color_map[cat] = c1.color_picker(
+                "Color", default_color, key=f"line_color_{hue_col}_{cat}", label_visibility="collapsed"
+            )
+            default_shape_idx = i % len(shape_names)
+            shape_choice = c2.selectbox(
+                "Shape", shape_names, index=default_shape_idx,
+                key=f"line_shape_{hue_col}_{cat}", label_visibility="collapsed",
+            )
+            marker_map[cat] = MARKER_SHAPES[shape_choice]
+        plot_kwargs["color_map"] = color_map
+        plot_kwargs["marker_map"] = marker_map if plot_kwargs["show_markers"] else None
+    else:
+        plot_kwargs["marker_map"] = None
+        if plot_kwargs["show_markers"]:
+            shape_choice = st.sidebar.selectbox("Marker shape", shape_names, index=0)
+            plot_kwargs["marker"] = MARKER_SHAPES[shape_choice]
 elif plot_name == "Bar":
     plot_kwargs["estimator"] = st.sidebar.selectbox("Summary statistic", ["mean", "median"])
     plot_kwargs["error_bars"] = st.sidebar.selectbox("Error bars", ["sd", "se", "none"])
@@ -215,6 +246,8 @@ if plot_name == "Pairplot":
     common["height"] = plot_kwargs.pop("height")
 elif plot_name == "Correlation heatmap":
     common = dict(title=title_text, xlabel=xlabel_text, ylabel=ylabel_text)
+elif plot_name == "Line" and "color_map" in plot_kwargs:
+    common["palette"] = plot_kwargs.pop("color_map")
 
 figsize = (width_in, height_in)
 
