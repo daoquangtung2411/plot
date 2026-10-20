@@ -205,18 +205,78 @@ def kde(df, x, y=None, hue=None, palette=None, figsize=(4, 3.2), fill=True,
 
 
 def heatmap(df, columns=None, figsize=(4.5, 4), cmap="rocket", annotate=True,
-            method="pearson", title="", xlabel="", ylabel=""):
+            value_decimals=2, method="pearson", title="", xlabel="", ylabel=""):
     cols = columns or df.select_dtypes(include=np.number).columns.tolist()
     _require(len(cols) >= 2, "Select at least two numeric columns for a correlation heatmap.")
     corr = df[cols].corr(method=method)
     fig, ax = _new_fig(figsize)
     sns.heatmap(
-        corr, ax=ax, cmap=cmap, annot=annotate, fmt=".2f",
+        corr, ax=ax, cmap=cmap, annot=annotate, fmt=f".{value_decimals}f",
         annot_kws={"size": 6}, linewidths=0.4, linecolor="white",
         cbar_kws={"shrink": 0.8, "label": f"{method.capitalize()} r"},
         square=True, vmin=-1, vmax=1,
     )
     ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha="right")
+    if title:
+        ax.set_title(title)
+    fig.tight_layout()
+    return fig
+
+
+def _dedupe_labels(labels):
+    counts = {}
+    out = []
+    for v in labels:
+        counts[v] = counts.get(v, 0) + 1
+        out.append(v if counts[v] == 1 else f"{v} (#{counts[v]})")
+    return out
+
+
+def settings_heatmap(df, metric_columns, label_columns=None, normalize="minmax",
+                      invert_columns=None, annotate=True, value_fmt=".3f", cmap="rocket",
+                      figsize=(5, 4), title="", xlabel="", ylabel=""):
+    _require(metric_columns and len(metric_columns) >= 1, "Select at least one metric column.")
+    invert_columns = set(invert_columns or [])
+
+    if label_columns:
+        labels = df[label_columns].astype(str).agg(" | ".join, axis=1).tolist()
+    else:
+        labels = df.index.astype(str).tolist()
+    labels = _dedupe_labels(labels)
+
+    raw = df[metric_columns].astype(float)
+    raw.index = labels
+
+    if normalize == "none":
+        color_matrix = raw.copy()
+        cbar_label = "Value"
+    elif normalize == "minmax":
+        span = raw.max() - raw.min()
+        color_matrix = (raw - raw.min()) / span.replace(0, 1)
+        cbar_label = "Min-max scaled (per column)"
+    elif normalize == "zscore":
+        std = raw.std().replace(0, 1)
+        color_matrix = (raw - raw.mean()) / std
+        cbar_label = "Z-score (per column)"
+    else:
+        raise PlotError(f"Unknown normalization: {normalize}")
+
+    for col in invert_columns:
+        if col in color_matrix.columns:
+            color_matrix[col] = -color_matrix[col] if normalize == "zscore" else (1 - color_matrix[col])
+
+    fig, ax = _new_fig(figsize)
+    annot_data = raw.map(lambda v: format(v, value_fmt)) if annotate else False
+    sns.heatmap(
+        color_matrix, ax=ax, cmap=cmap, annot=annot_data, fmt="",
+        annot_kws={"size": 7}, linewidths=0.5, linecolor="white",
+        cbar_kws={"shrink": 0.8, "label": cbar_label},
+    )
+    for label in ax.get_xticklabels():
+        label.set_rotation(30)
+        label.set_ha("right")
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel or ("Setting" if label_columns else ""))
     if title:
         ax.set_title(title)
     fig.tight_layout()
@@ -295,5 +355,11 @@ PLOT_REGISTRY = {
         "needs": ["columns"],
         "optional": ["hue"],
         "description": "Grid of pairwise scatter/histograms across numeric columns.",
+    },
+    "Settings heatmap": {
+        "func": settings_heatmap,
+        "needs": ["metric_columns"],
+        "optional": ["label_columns"],
+        "description": "Compare metrics (e.g. AUC, RMSE) across settings/configs, scaled per column.",
     },
 }

@@ -86,6 +86,17 @@ for field in spec["needs"] + spec["optional"]:
         params[field] = optional_selectbox(label, all_cols, key=f"field_{field}")
     elif field == "size":
         params["size"] = optional_selectbox(label, numeric_cols, key="field_size")
+    elif field == "metric_columns":
+        float_cols = [c for c in numeric_cols if pd.api.types.is_float_dtype(df[c])]
+        default = float_cols if float_cols else numeric_cols[: min(4, len(numeric_cols))]
+        params["metric_columns"] = st.sidebar.multiselect(
+            "Metric columns (numeric) *", numeric_cols, default=default, key="metric_cols_multi"
+        )
+    elif field == "label_columns":
+        other_cols = [c for c in all_cols if c not in params.get("metric_columns", [])]
+        params["label_columns"] = st.sidebar.multiselect(
+            "Label columns (optional, build row name)", all_cols, default=other_cols, key="label_cols_multi"
+        )
 
 # ---------------------------------------------------------------- plot opts
 st.sidebar.title("4. Plot options")
@@ -179,6 +190,9 @@ elif plot_name == "Bar":
     }
     label_choice = st.sidebar.selectbox("Bar labels", label_options)
     plot_kwargs["bar_label_mode"] = label_map[label_choice]
+    if plot_kwargs["bar_label_mode"] == "value":
+        decimals = st.sidebar.number_input("Decimal places", 0, 6, 2, 1, key="bar_label_decimals")
+        plot_kwargs["bar_label_fmt"] = f"%.{decimals}f"
     plot_kwargs["xtick_rotation"] = st.sidebar.slider("Rotate X labels (°)", 0, 90, 0, 15)
 
     manual_ylim = st.sidebar.checkbox("Set Y-axis limits manually", value=False)
@@ -205,10 +219,29 @@ elif plot_name == "Density (KDE)":
 elif plot_name == "Correlation heatmap":
     plot_kwargs["method"] = st.sidebar.selectbox("Correlation method", ["pearson", "spearman", "kendall"])
     plot_kwargs["annotate"] = st.sidebar.checkbox("Annotate values", value=True)
+    if plot_kwargs["annotate"]:
+        plot_kwargs["value_decimals"] = st.sidebar.number_input(
+            "Decimal places", 0, 6, 2, 1, key="corr_heatmap_decimals"
+        )
     plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS)
 elif plot_name == "Pairplot":
     plot_kwargs["diag_kind"] = st.sidebar.selectbox("Diagonal", ["kde", "hist"])
     plot_kwargs["height"] = st.sidebar.slider("Panel size (in)", 1.0, 3.0, 1.6, 0.1)
+elif plot_name == "Settings heatmap":
+    norm_labels = {"none": "Raw values", "minmax": "Min-max (0-1) per column", "zscore": "Z-score per column"}
+    plot_kwargs["normalize"] = st.sidebar.selectbox(
+        "Color scale", list(norm_labels.keys()), index=1, format_func=lambda v: norm_labels[v]
+    )
+    metric_cols_selected = params.get("metric_columns") or []
+    invert_default = [c for c in metric_cols_selected if c.lower() in ("rmse", "mse", "mae", "loss", "error")]
+    plot_kwargs["invert_columns"] = st.sidebar.multiselect(
+        "Invert color (lower = better)", metric_cols_selected, default=invert_default
+    )
+    plot_kwargs["annotate"] = st.sidebar.checkbox("Annotate values", value=True)
+    if plot_kwargs["annotate"]:
+        decimals = st.sidebar.number_input("Decimal places", 0, 6, 3, 1, key="settings_heatmap_decimals")
+        plot_kwargs["value_fmt"] = f".{decimals}f"
+    plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS, key="settings_heatmap_cmap")
 
 # ------------------------------------------------------------------- style
 st.sidebar.title("5. Style (Nature-like)")
@@ -244,7 +277,7 @@ common = dict(palette=palette, title=title_text, xlabel=xlabel_text, ylabel=ylab
 if plot_name == "Pairplot":
     common = dict(palette=palette, title=title_text)
     common["height"] = plot_kwargs.pop("height")
-elif plot_name == "Correlation heatmap":
+elif plot_name in ("Correlation heatmap", "Settings heatmap"):
     common = dict(title=title_text, xlabel=xlabel_text, ylabel=ylabel_text)
 elif plot_name == "Line" and "color_map" in plot_kwargs:
     common["palette"] = plot_kwargs.pop("color_map")
