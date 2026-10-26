@@ -1,4 +1,4 @@
-2026-10-20 05:38:55.827 Uvicorn server started on :::8501
+2026-10-26 05:01:48.337 Uvicorn server started on :::8501
 
   You can now view your Streamlit app in your browser.
 
@@ -6,82 +6,715 @@
   Network URL: http://192.168.50.50:8501
   External URL: http://158.174.22.93:8501
 
-2026-10-20 05:40:59.610 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:17.814 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
 /Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
   sns.scatterplot(**scatter_kwargs)
-2026-10-20 05:40:59.819 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:18.127 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-10-20 05:41:02.090 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:27.864 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: FutureWarning: 
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
   sns.barplot(
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (25) and will cycle, which may produce an uninterpretable plot.
   sns.barplot(
-2026-10-20 05:41:02.180 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:28.196 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-10-20 05:41:09.213 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:37.579 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: FutureWarning: 
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (22) and will cycle, which may produce an uninterpretable plot.
+  sns.barplot(
+2026-10-26 05:02:37.892 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:02:41.117 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
   sns.barplot(
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (25) and will cycle, which may produce an uninterpretable plot.
   sns.barplot(
-2026-10-20 05:41:09.305 Please replace `use_container_width` with `width`.
+2026-10-26 05:02:41.415 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-10-20 05:41:23.729 Please replace `use_container_width` with `width`.
+2026-10-26 05:03:05.493 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: FutureWarning: 
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
   sns.barplot(
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (25) and will cycle, which may produce an uninterpretable plot.
   sns.barplot(
-2026-10-20 05:41:23.824 Please replace `use_container_width` with `width`.
+2026-10-26 05:03:05.825 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-10-20 05:41:25.189 Please replace `use_container_width` with `width`.
+2026-10-26 05:06:03.437 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: FutureWarning: 
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
   sns.barplot(
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:97: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (26) and will cycle, which may produce an uninterpretable plot.
   sns.barplot(
-2026-10-20 05:41:25.281 Please replace `use_container_width` with `width`.
+2026-10-26 05:06:03.714 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:06:08.415 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: 
+The palette list has fewer values (8) than needed (23) and will cycle, which may produce an uninterpretable plot.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:06:08.579 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:06:12.475 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (23) and will cycle, which may produce an uninterpretable plot.
+  sns.barplot(
+2026-10-26 05:06:12.811 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:06:16.122 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (23) and will cycle, which may produce an uninterpretable plot.
+  sns.barplot(
+2026-10-26 05:06:16.430 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:06:24.715 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (23) and will cycle, which may produce an uninterpretable plot.
+  sns.barplot(
+2026-10-26 05:06:25.004 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:31.405 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:09:31.549 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:33.440 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: 
+The palette list has fewer values (8) than needed (25) and will cycle, which may produce an uninterpretable plot.
+  sns.barplot(
+2026-10-26 05:09:33.669 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:38.179 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:38.260 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:46.638 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:46.730 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:48.714 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:48.798 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:52.118 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:52.211 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:54.573 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:54.665 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:09:58.539 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:09:58.629 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:03.413 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:03.554 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:08.755 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:08.847 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:10.836 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:10.927 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:14.815 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:14.906 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:29.613 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:29.719 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:48.925 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:49.050 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:10:49.663 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:10:49.811 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:11:43.690 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:11:43.790 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:30:06.975 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+2026-10-26 05:30:07.116 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:30:46.173 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:30:46.241 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:31:04.874 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:31:04.948 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:32:00.936 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:32:01.021 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:34:43.558 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+2026-10-26 05:34:43.624 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:34:48.582 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (2), which may not be intended.
+  sns.barplot(
+2026-10-26 05:34:48.654 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:34:57.719 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:34:57.828 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:05.447 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:05.541 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:11.953 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:12.053 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:15.363 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:15.515 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:17.568 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:17.671 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:27.108 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:27.206 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:29.495 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:29.609 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:31.372 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:31.468 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:36.252 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:36.351 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:41.164 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:41.313 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:43.798 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:43.904 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:57.454 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:57.531 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-26 05:35:58.698 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:110: UserWarning: The palette list has more values (8) than needed (4), which may not be intended.
+  sns.barplot(
+2026-10-26 05:35:58.801 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 

@@ -84,8 +84,21 @@ def line(df, x, y, hue=None, palette=None, figsize=(4, 3.2), show_markers=True,
     return fig
 
 
+def _container_hue_labels(ax):
+    """Map each ax.containers entry to its real hue-level label.
+
+    container.get_label() returns a placeholder like "_container0" in
+    current seaborn — the actual level names only live in the legend's
+    handle/label pairs, which share the same order as ax.containers.
+    """
+    _, labels = ax.get_legend_handles_labels()
+    if labels and len(labels) == len(ax.containers):
+        return labels
+    return [c.get_label() for c in ax.containers]
+
+
 def bar(df, x, y, hue=None, palette=None, figsize=(4, 3.2), estimator="mean",
-        error_bars="sd", bar_label_mode="none", bar_label_fmt="%.2f",
+        error_bars="sd", bar_label_mode="none", label_decimals=2,
         xtick_rotation=0, y_min=None, y_max=None, title="", xlabel="", ylabel=""):
     _require(x and y, "Choose both an X (category) and a Y (numeric) column.")
     if bar_label_mode == "category":
@@ -102,11 +115,49 @@ def bar(df, x, y, hue=None, palette=None, figsize=(4, 3.2), estimator="mean",
 
     if bar_label_mode == "value":
         for container in ax.containers:
-            ax.bar_label(container, fmt=bar_label_fmt, padding=3)
+            ax.bar_label(container, fmt=f"%.{label_decimals}f", padding=3)
         ax.margins(y=0.12)
+    elif bar_label_mode == "mean_std":
+        dispersion = "se" if error_bars == "se" else "sd"
+        x_order = [t.get_text() for t in ax.get_xticklabels()]
+
+        def _mean_disp(s):
+            m = s.mean()
+            d = s.std(ddof=1) if len(s) > 1 else 0.0
+            if dispersion == "se" and len(s) > 1:
+                d = d / np.sqrt(len(s))
+            return m, d
+
+        def _annotate(x_center, m, d):
+            y_top = m + d if error_bars != "none" else m
+            ax.text(
+                x_center, y_top, f"{m:.{label_decimals}f} ± {d:.{label_decimals}f}",
+                ha="center", va="bottom",
+            )
+
+        if hue:
+            # Normal grouped-bar layout: one container per hue level, patches in x order.
+            stats = {(str(xv), str(hv)): _mean_disp(sub) for (xv, hv), sub in df.groupby([x, hue])[y]}
+            for container, level in zip(ax.containers, _container_hue_labels(ax)):
+                for i, patch in enumerate(container.patches):
+                    if i >= len(x_order):
+                        continue
+                    key = (x_order[i], str(level))
+                    if key in stats:
+                        _annotate(patch.get_x() + patch.get_width() / 2, *stats[key])
+        else:
+            # Without hue, seaborn may split bars into one single-patch container per
+            # category (when a palette is set) instead of one container holding all of
+            # them — match by actual x-position rather than trusting container layout.
+            stats = {str(xv): _mean_disp(sub) for xv, sub in df.groupby(x)[y]}
+            for patch in (p for c in ax.containers for p in c.patches):
+                x_center = patch.get_x() + patch.get_width() / 2
+                idx = round(x_center)
+                if 0 <= idx < len(x_order) and x_order[idx] in stats:
+                    _annotate(x_center, *stats[x_order[idx]])
+        ax.margins(y=0.2)
     elif bar_label_mode == "category":
-        for container in ax.containers:
-            label = container.get_label()
+        for container, label in zip(ax.containers, _container_hue_labels(ax)):
             ax.bar_label(container, labels=[label] * len(container), rotation=90, padding=3)
         legend = ax.get_legend()
         if legend is not None:

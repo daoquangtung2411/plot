@@ -180,19 +180,23 @@ elif plot_name == "Line":
 elif plot_name == "Bar":
     plot_kwargs["estimator"] = st.sidebar.selectbox("Summary statistic", ["mean", "median"])
     plot_kwargs["error_bars"] = st.sidebar.selectbox("Error bars", ["sd", "se", "none"])
-    label_options = ["None", "Value on bar"]
+    label_options = ["None", "Value on bar", "Mean ± SD/SE on bar"]
     if params.get("hue"):
         label_options.append("Category on bar (hides legend)")
     label_map = {
         "None": "none",
         "Value on bar": "value",
+        "Mean ± SD/SE on bar": "mean_std",
         "Category on bar (hides legend)": "category",
     }
     label_choice = st.sidebar.selectbox("Bar labels", label_options)
     plot_kwargs["bar_label_mode"] = label_map[label_choice]
-    if plot_kwargs["bar_label_mode"] == "value":
-        decimals = st.sidebar.number_input("Decimal places", 0, 6, 2, 1, key="bar_label_decimals")
-        plot_kwargs["bar_label_fmt"] = f"%.{decimals}f"
+    if plot_kwargs["bar_label_mode"] in ("value", "mean_std"):
+        plot_kwargs["label_decimals"] = st.sidebar.number_input(
+            "Decimal places", 0, 6, 2, 1, key="bar_label_decimals"
+        )
+    if plot_kwargs["bar_label_mode"] == "mean_std":
+        st.sidebar.caption("Shows mean ± SD (or SE) computed from the underlying rows, matching the error bars below.")
     plot_kwargs["xtick_rotation"] = st.sidebar.slider("Rotate X labels (°)", 0, 90, 0, 15)
 
     manual_ylim = st.sidebar.checkbox("Set Y-axis limits manually", value=False)
