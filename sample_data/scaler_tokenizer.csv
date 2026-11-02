@@ -1,0 +1,10 @@
+Scaler,Tokenizer,Average AUC-ROC
+StandardScaler,Linear,0.792
+StandardScaler,Periodic,0.791
+StandardScaler,Hybrid,0.794
+PowerTransformers,Linear,0.784
+PowerTransformers,Periodic,0.784
+PowerTransformers,Hybrid,0.78
+QuantileTransformers,Linear,0.786
+QuantileTransformers,Periodic,0.781
+QuantileTransformers,Hybrid,0.768

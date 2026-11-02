@@ -68,7 +68,12 @@ categorical_cols = col_options(df, "categorical")
 for field in spec["needs"] + spec["optional"]:
     required = field in spec["needs"]
     label = f"{field} {'*' if required else '(optional)'}"
-    if field == "columns":
+    if plot_name == "Pivot heatmap" and field in ("x", "y"):
+        params[field] = st.sidebar.selectbox(label, all_cols, key=f"field_{field}")
+    elif field == "value":
+        opts = numeric_cols or all_cols
+        params["value"] = st.sidebar.selectbox(label, opts, key="field_value")
+    elif field == "columns":
         default = numeric_cols[: min(6, len(numeric_cols))]
         params["columns"] = st.sidebar.multiselect(
             "Numeric columns *", numeric_cols, default=default, key="cols_multi"
@@ -246,6 +251,14 @@ elif plot_name == "Settings heatmap":
         decimals = st.sidebar.number_input("Decimal places", 0, 6, 3, 1, key="settings_heatmap_decimals")
         plot_kwargs["value_fmt"] = f".{decimals}f"
     plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS, key="settings_heatmap_cmap")
+elif plot_name == "Pivot heatmap":
+    plot_kwargs["annotate"] = st.sidebar.checkbox("Annotate values", value=True, key="pivot_heatmap_annotate")
+    if plot_kwargs["annotate"]:
+        plot_kwargs["value_decimals"] = st.sidebar.number_input(
+            "Decimal places", 0, 6, 3, 1, key="pivot_heatmap_decimals"
+        )
+    plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS, key="pivot_heatmap_cmap")
+    plot_kwargs["highlight_best"] = st.sidebar.checkbox("Highlight best cell (max value)", value=True)
 
 # ------------------------------------------------------------------- style
 st.sidebar.title("5. Style (Nature-like)")
@@ -281,7 +294,7 @@ common = dict(palette=palette, title=title_text, xlabel=xlabel_text, ylabel=ylab
 if plot_name == "Pairplot":
     common = dict(palette=palette, title=title_text)
     common["height"] = plot_kwargs.pop("height")
-elif plot_name in ("Correlation heatmap", "Settings heatmap"):
+elif plot_name in ("Correlation heatmap", "Settings heatmap", "Pivot heatmap"):
     common = dict(title=title_text, xlabel=xlabel_text, ylabel=ylabel_text)
 elif plot_name == "Line" and "color_map" in plot_kwargs:
     common["palette"] = plot_kwargs.pop("color_map")

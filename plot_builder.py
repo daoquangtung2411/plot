@@ -334,6 +334,30 @@ def settings_heatmap(df, metric_columns, label_columns=None, normalize="minmax",
     return fig
 
 
+def pivot_heatmap(df, x, y, value, annotate=True, value_decimals=3, cmap="rocket",
+                   highlight_best=True, figsize=(4.5, 4), title="", xlabel="", ylabel=""):
+    _require(x and y and value, "Choose X, Y, and a Value column.")
+    pivot = df.pivot_table(index=y, columns=x, values=value, aggfunc="mean")
+    fig, ax = _new_fig(figsize)
+    sns.heatmap(
+        pivot, ax=ax, cmap=cmap, annot=annotate, fmt=f".{value_decimals}f",
+        annot_kws={"size": 7}, linewidths=0.5, linecolor="white",
+        cbar_kws={"shrink": 0.8, "label": value},
+    )
+    if highlight_best and not np.all(np.isnan(pivot.values)):
+        r, c = np.unravel_index(np.nanargmax(pivot.values), pivot.values.shape)
+        ax.add_patch(plt.Rectangle((c, r), 1, 1, fill=False, edgecolor="black", linewidth=2))
+    for label in ax.get_xticklabels():
+        label.set_rotation(30)
+        label.set_ha("right")
+    ax.set_xlabel(xlabel or x)
+    ax.set_ylabel(ylabel or y)
+    if title:
+        ax.set_title(title)
+    fig.tight_layout()
+    return fig
+
+
 def pairplot(df, columns=None, hue=None, palette=None, height=1.6, diag_kind="kde",
              title=""):
     cols = columns or df.select_dtypes(include=np.number).columns.tolist()
@@ -412,5 +436,11 @@ PLOT_REGISTRY = {
         "needs": ["metric_columns"],
         "optional": ["label_columns"],
         "description": "Compare metrics (e.g. AUC, RMSE) across settings/configs, scaled per column.",
+    },
+    "Pivot heatmap": {
+        "func": pivot_heatmap,
+        "needs": ["x", "y", "value"],
+        "optional": [],
+        "description": "Grid of one numeric value across two categorical variables — e.g. find the best combination of two settings.",
     },
 }
