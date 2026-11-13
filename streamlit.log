@@ -2,15 +2,18 @@
   You can now view your Streamlit app in your browser.
 
   Local URL: http://localhost:8501
-  Network URL: http://130.229.133.125:8501
-  External URL: http://130.229.133.125:8501
+  Network URL: http://130.229.159.163:8501
+  External URL: http://130.229.159.163:8501
 
   For better performance, install the Watchdog module:
 
   $ xcode-select --install
   $ pip install watchdog
             
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:53: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
   sns.scatterplot(**scatter_kwargs)
-/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:50: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:53: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
   sns.scatterplot(**scatter_kwargs)
+/Users/macbook/Documents/ALLAB/Claude/plot_studio/plot_builder.py:53: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.
+  sns.scatterplot(**scatter_kwargs)
+  Stopping...

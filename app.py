@@ -73,6 +73,13 @@ for field in spec["needs"] + spec["optional"]:
     elif field == "value":
         opts = numeric_cols or all_cols
         params["value"] = st.sidebar.selectbox(label, opts, key="field_value")
+    elif field == "group":
+        params["group"] = st.sidebar.selectbox(label, all_cols, key="field_group")
+    elif field == "pair_id":
+        if required:
+            params["pair_id"] = st.sidebar.selectbox(label, all_cols, key="field_pair_id")
+        else:
+            params["pair_id"] = optional_selectbox(label, all_cols, key="field_pair_id")
     elif field == "columns":
         default = numeric_cols[: min(6, len(numeric_cols))]
         params["columns"] = st.sidebar.multiselect(
@@ -259,6 +266,33 @@ elif plot_name == "Pivot heatmap":
         )
     plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS, key="pivot_heatmap_cmap")
     plot_kwargs["highlight_best"] = st.sidebar.checkbox("Highlight best cell (max value)", value=True)
+elif plot_name == "Model comparison (stats)":
+    if params.get("pair_id"):
+        st.sidebar.caption(f"Paired test: models compared on matching '{params['pair_id']}' rows.")
+    else:
+        st.sidebar.caption("No pairing column set — using independent-samples test.")
+    plot_kwargs["nonparametric"] = st.sidebar.checkbox(
+        "Use non-parametric test (Wilcoxon / Mann-Whitney U)", value=False,
+        help="Paired: Wilcoxon signed-rank. Unpaired: Mann-Whitney U. Otherwise uses paired/Welch's t-test.",
+    )
+    plot_kwargs["correction"] = st.sidebar.selectbox(
+        "Multiple-comparison correction", ["holm", "bonferroni", "none"],
+        format_func=lambda v: {"holm": "Holm-Bonferroni", "bonferroni": "Bonferroni", "none": "None"}[v],
+    )
+    plot_kwargs["alpha"] = st.sidebar.slider("Significance threshold (α)", 0.001, 0.10, 0.05, 0.001)
+    plot_kwargs["annotate"] = st.sidebar.checkbox("Annotate p-values", value=True, key="sig_annotate")
+    if plot_kwargs["annotate"]:
+        plot_kwargs["value_decimals"] = st.sidebar.number_input(
+            "Decimal places", 0, 6, 3, 1, key="sig_decimals"
+        )
+    plot_kwargs["cmap"] = st.sidebar.selectbox("Colormap", HEATMAP_CMAPS, key="sig_cmap")
+elif plot_name == "Critical Difference Diagram":
+    plot_kwargs["higher_is_better"] = st.sidebar.checkbox("Higher value = better", value=True)
+    plot_kwargs["alpha"] = st.sidebar.slider("Significance threshold (α)", 0.01, 0.10, 0.05, 0.01)
+    st.sidebar.caption(
+        "Ranks each model per item (e.g. dataset), runs a Friedman test, then a Nemenyi "
+        "post-hoc test. Thick bars connect models that are NOT significantly different."
+    )
 
 # ------------------------------------------------------------------- style
 st.sidebar.title("5. Style (Nature-like)")
@@ -294,7 +328,10 @@ common = dict(palette=palette, title=title_text, xlabel=xlabel_text, ylabel=ylab
 if plot_name == "Pairplot":
     common = dict(palette=palette, title=title_text)
     common["height"] = plot_kwargs.pop("height")
-elif plot_name in ("Correlation heatmap", "Settings heatmap", "Pivot heatmap"):
+elif plot_name in (
+    "Correlation heatmap", "Settings heatmap", "Pivot heatmap",
+    "Model comparison (stats)", "Critical Difference Diagram",
+):
     common = dict(title=title_text, xlabel=xlabel_text, ylabel=ylabel_text)
 elif plot_name == "Line" and "color_map" in plot_kwargs:
     common["palette"] = plot_kwargs.pop("color_map")
